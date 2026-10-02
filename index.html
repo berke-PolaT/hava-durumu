@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hava Durumu</title>
+  <meta name="description" content="Şehir adıyla arama yapabileceğin, 7 günlük tahmin gösteren hava durumu uygulaması.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⛅</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="uygulama">
+    <header class="ust">
+      <h1>⛅ Hava Durumu</h1>
+      <form id="arama-formu" class="arama" autocomplete="off">
+        <input id="sehir-girdisi" type="search" placeholder="Şehir ara... (ör. İstanbul)" aria-label="Şehir adı" required>
+        <button type="submit">Ara</button>
+        <button type="button" id="konum-butonu" title="Konumumu kullan" aria-label="Konumumu kullan">📍</button>
+      </form>
+      <ul id="oneriler" class="oneriler" hidden></ul>
+    </header>
+
+    <p id="durum-mesaji" class="durum-mesaji" role="status"></p>
+
+    <section id="hava-icerik" hidden>
+      <article class="kart guncel">
+        <div class="guncel-sol">
+          <h2 id="sehir-adi"></h2>
+          <p id="tarih" class="soluk"></p>
+          <div class="sicaklik-satiri">
+            <span id="hava-ikonu" class="buyuk-ikon"></span>
+            <span id="sicaklik" class="sicaklik"></span>
+          </div>
+          <p id="hava-aciklama" class="aciklama"></p>
+        </div>
+        <dl class="detaylar">
+          <div><dt>Hissedilen</dt><dd id="hissedilen"></dd></div>
+          <div><dt>Nem</dt><dd id="nem"></dd></div>
+          <div><dt>Rüzgâr</dt><dd id="ruzgar"></dd></div>
+          <div><dt>Gün doğumu</dt><dd id="gun-dogumu"></dd></div>
+          <div><dt>Gün batımı</dt><dd id="gun-batimi"></dd></div>
+          <div><dt>Yağış ihtimali</dt><dd id="yagis"></dd></div>
+        </dl>
+      </article>
+
+      <article class="kart">
+        <h3>Saatlik Tahmin</h3>
+        <div id="saatlik" class="saatlik"></div>
+      </article>
+
+      <article class="kart">
+        <h3>7 Günlük Tahmin</h3>
+        <ul id="gunluk" class="gunluk"></ul>
+      </article>
+    </section>
+
+    <footer class="alt">
+      Veriler <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> tarafından sağlanmaktadır.
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
